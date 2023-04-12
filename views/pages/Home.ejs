@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background: greenyellow;
+            padding: 20px 30px;
+            text-align: center;
+        }
+
+        #newuser-btn {
+            display: inline-block;
+            background: navy;
+            color: white;
+            padding: 10px;
+            margin: 20px;
+            text-decoration: none;
+        }
+
+        #card-container {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card-holder {
+            padding: 10px;
+            border: 1px solid black;
+            width: 80%;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .default-color {
+            color: yellow;
+        }
+
+        .green {
+            color: green;
+        }
+
+        .red {
+            color: red;
+        }
+
+        .card-btn-container {
+            padding-top: 10px;
+            display: flex;
+        }
+
+        .card-btn-container form button {
+            padding: 5px;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .card-btn-container form:nth-child(1) button {
+            background-color: green;
+            color: white;
+        }
+
+        .card-btn-container form:nth-child(2) button {
+            background-color: red;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Assignment 4</h1>
+    </header>
+    <div id="card-container">
+        <% users.forEach(function(user){ %>
+            <% user.class=(user.isPromoted===null)? "default-color" : user.isPromoted ? "green" : "red" %>
+                <%- include('../partials/Card', {user: user}) %>
+                    <% }); %>
+    </div>
+    <div class="btn-container">
+        <a href="/form" id="newuser-btn">Add User</a>
+    </div>
+
+</body>
+
+</html>

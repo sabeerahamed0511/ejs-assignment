@@ -1,0 +1,18 @@
+<div class="card-holder">
+    <div class="<%= user.class %>">
+        <h2>
+            <%= user.name %>
+        </h2>
+        <h4>
+            <%= user.email %>
+        </h4>
+    </div>
+    <div class="card-btn-container">
+        <form method="POST" action="/users/<%= user._id %>?_method=PUT">
+            <button id="edit-<%= user.name %>" type="submit">Promoted / Demoted</button>
+        </form>
+        <form method="POST" action="/users/<%= user._id %>?_method=DELETE">
+            <button id="delete-<%= user.name %>">Delete</button>
+        </form>
+    </div>
+</div>
